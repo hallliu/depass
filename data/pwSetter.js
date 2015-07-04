@@ -6,5 +6,5 @@ self.port.on("writePassword", function(pwText) {
 });
 
 self.port.on("getHostname", function() {
-    self.port.emit(window.location.hostname);
+    self.port.emit("hostNameIs", window.location.hostname);
 });
