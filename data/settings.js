@@ -4,7 +4,11 @@ $(document).ready(function() {
     });
 
     addon.port.on("setOptionsDisplay", function(options) {
-        // Set checkboxes to options given
+        for (optName in options) {
+            if (options.hasOwnProperty(optName)) {
+                $('#' + optName)[0].checked = options[optName];
+            }
+        }
     });
 
     $("#masterPassword").keypress(function(event) {
