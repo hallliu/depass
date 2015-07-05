@@ -1,6 +1,6 @@
 $(document).ready(function() {
     addon.port.on("pwCheckResult", function(valid) {
-        $("#isValid").value = valid ? "Valid" : "Invalid";
+        $("#isValid").text(valid ? "Valid" : "Invalid");
     });
 
     addon.port.on("setOptionsDisplay", function(options) {
@@ -11,10 +11,14 @@ $(document).ready(function() {
         }
     });
 
-    $("#masterPassword").keypress(function(event) {
+    $("#masterPassword")[0].oninput = function(event) {
         var enteredPw = $(event.target).val();
-        addon.port.emit("checkThisPw", enteredPw);
-    });
+        if ($("#changePwButton").hasClass("active")) {
+            addon.port.emit("setMasterPw", enteredPw);
+        } else {
+            addon.port.emit("checkThisPw", enteredPw);
+        }
+    };
 
     $(".pwOption").change(function(event) {
         options = {}
