@@ -5,11 +5,9 @@
     </head>
     <body>
         <form>
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="password" id="masterPassword" class="form-control" placeholder="Master password">
-                    <span class="input-group-addon" id="isValid">Valid</span>
-                </div>
+            <div class="form-group has-feedback" id="feedbackPlace">
+                <input type="password" id="masterPassword" class="form-control" placeholder="Master password">
+                <span class="glyphicon form-control-feedback" id="masterPwIcon"></span>
             </div>
             <div class="form-group" style="text-align:center">
                 <label class="checkbox-inline pwOption">
@@ -21,6 +19,12 @@
                 <label class="checkbox-inline pwOption">
                     <input type="checkbox" id="symbols"> Symbols
                 </label>
+            </div>
+            <div class="form-group">
+                <label for="modifiers" class="col-xs-offset-2 col-xs-3 control-label">Modifiers</label>
+                <div class="col-xs-5">
+                    <input class="form-control pwOption" type="number" id="modifiers">
+                </div>
             </div>
             <div class="form-group" style="text-align:center">
                 <button class="btn btn-primary" type="button" data-toggle="button" id="changePwButton">Change Master Password</button>
