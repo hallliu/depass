@@ -11,6 +11,10 @@ $(document).ready(function() {
         }
     });
 
+    addon.port.on("getMasterPw", function() {
+        addon.port.emit("masterPwResult", $("#masterPassword").val());
+    });
+
     $("#masterPassword")[0].oninput = function(event) {
         var enteredPw = $(event.target).val();
         if ($("#changePwButton").hasClass("active")) {
