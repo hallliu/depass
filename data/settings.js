@@ -3,6 +3,10 @@ $(document).ready(function() {
         $("#isValid").value = valid ? "Valid" : "Invalid";
     });
 
+    addon.port.on("setOptionsDisplay", function(options) {
+        // Set checkboxes to options given
+    });
+
     $("#masterPassword").keypress(function(event) {
         var enteredPw = $(event.target).val();
         addon.port.emit("checkThisPw", enteredPw);
@@ -13,6 +17,4 @@ $(document).ready(function() {
         options[event.target.id] = event.target.checked;
         addon.port.emit("optionsChange", options);
     });
-
-
 });
